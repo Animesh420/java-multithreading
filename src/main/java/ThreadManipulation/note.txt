@@ -1,0 +1,8 @@
+- Main thread: run on the main function
+- Daemon threads: helper threads (like for garbage collection, IO or services)
+- Daemon threads are terminated by JVM when all other worker threads are terminated
+- Worker threads are not terminated by JVM
+- Time slicing algorithm is handled by thread scheduler -> order to CPU is given by Thread scheduler
+- Priority of thread are assigned between 1 to 10
+- By default threads are in a queue, same priority threads are executed in FIFS
+-
