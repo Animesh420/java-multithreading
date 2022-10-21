@@ -1,0 +1,26 @@
+- stack memory -> local variables, method arguments and method calls are stored here
+- heap memory -> Instantiate a new class, live as long it is referenced
+- stack is faster than heap for access, heap memory is larger than stack
+- Every thread has its own stack memory but they share the heap memory
+- Synchronization -> sharing resources without interferences using mutual exclusion
+- local variables of threads are not accessible to each other
+- incrementing an integer is not an atomic operation, it has many sub-operation
+- every object has intrinsic lock in java, when a thread needs exclusive access to an object's fields
+it has to acquire the object's intrinsic lock before accessing them, and then releases the
+intrinsic lock when it is done with them
+- Every object in java has a single monitor lock, if we have 2 independent synchronized methods then the threads have to
+wait for each other to release the lock
+- synchronized method on instance method, block does object level locking meaning no 2 threads can execute the same object
+- synchronized keyword on static method leads to class level locking
+- good practice to synchronize parts of operation in a method, not total method
+- Problem: When a class has multiple synchronized methods, multiple threads cannot by default execute these methods
+like a multi threaded setup, because each thread has an intrinsic lock on the class/object
+- Solution: Add custom lock objects to different methods, so that each thread can aquire different locks on different
+methods and the code can be executed in a multi threaded fashion.
+- this ensures independent method can be executed by independent threads
+- Re-entrant locks or RLocks -> can be released by the thread that acquired it.
+- wait() -> wait after release of lock held by a thread
+- notify() -> notify another thread to re-acquire a lock previously left
+- after call to notify method java waits for all the code to execute in the synchronized block to
+- Locks -> Reentrant locks ->  Lock is interface, ReentrantLock is implementation
+- Lock can be set in one method and unset in another one
