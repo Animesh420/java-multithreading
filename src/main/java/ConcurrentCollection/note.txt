@@ -1,0 +1,11 @@
+- Collection are umbrella interface for List(ArrayList, LinkedList, Vector, Stack),
+ Queue(PriorityQueue, Deque, ArrayDeque),
+ Set (HashSet, LinkedHashSet, SortedSet, TreeSet)
+- Maps (do not implement collection interface) -> HashTable, HashMap, LinkedHashMap, SortedMap, TreeMap
+- Most of the Collection/Maps are not thread safe
+- Vector is a thread-safe data structures,  stack inherits vector, so it is too
+- Countdown Latch
+    - Starts with N threads
+    - each working thread should call latch.countdown()
+    - a thread that calls await,  waits till countdown reaches 0
+-

@@ -1,0 +1,24 @@
+- Executors cache/ reuse threads as creating/managing threads is a costly operation
+- types of executors -> CachedThreadPool, ScheduledExecutor, SingleThreadExecutor, FixedThreadPoolExecutor
+- SingleThreadExecutor -> Executor has single thread, so we can execute process in a sequential manner, every process is
+executed by new Thread
+- FixedThreadPool(n)
+    - N = number of cores in the CPU
+    - Creates a thread pool with n threads
+    - More tasks than N then they are stored in LinkedBlockingQueue data structure
+ - CachedThreadPool
+    - Number of threads is not bounded, if all threads are busy executing some tasks and a new task comes a new thread
+    will be added to execute
+    - It should be ensured not a lot of tasks are going to be created in this thread pool to avoid creation of multiple threads
+    - Used for short parallel tasks
+ - ScheduledExecutor : Execute a given operation at regular interval
+- Runnable vs Callable
+    - new thread needs runnable interface, it is a run and forget activity
+    - Callable is similar to Runnable, but it  can return a value
+    - Callable interface returns a Future (not the value directly)
+    - Calling thread will be blocked till the call() method is executed and Future<T> returns with the results
+    -
+- Executor Service -> execute method:
+    - Can handle runnable interface so it means there is no return value (void run() method))
+- Executor Service -> submit method:
+    - Can handle both Runnable/Callable interfaces, use get() method to get the output

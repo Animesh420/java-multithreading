@@ -1,0 +1,29 @@
+- every single thread has its own stack, cache and CPU in case of multiprocessor CPUs
+- every read of volatile variable will be read from RAM so from the main memory not the CPU cache
+- To stop a thread, one should declare a volatile flag variable and check its value as a condition to terminate the thread.
+- Deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads
+- Deadlock is a situation in which two or more competing actions are waiting for each other to finish
+- In deadlock threads are blocked waiting on each other
+- In livelock threads are not blocked, but they are too busy responding to each other
+- In either of them no thread makes progress but stays the same
+- Infinitely blocked threads can be managed by using tryLock function which does not wait infinitely
+- order of operations should be same to avoid cyclic dependency
+- livelock can be handled with methods above and some randomness and threads retry acquiring the locks at random intervals
+- semaphores are simple variables/ abstract data types that are used for controlling access to a common resource, so that
+state of given resource is consistent when there are multiple threads.
+- semaphores : counting semaphore and binary semaphore
+- semaphores
+    - track how many resources are free
+    - does not keep track of which resources are free
+    - semaphore count may serve as a useful trigger for a new action (like asking for subscription after reading 5 free reviews)
+- Mutex: Mutual exclusion is a property of concurrency control which is used for purpose of preventing race condition
+- process synchronization plays an important role in maintaining the consistency of shared data
+- Mutex is like a binary semaphore
+- A lock is the mutex
+- Semaphore vs Mutex
+    - semaphore is a signalling mechanism, mutex is a locking mechanis
+    - threads to wait(), notify() for semaphores, threads do lock(), unlock()
+    - semaphore allows multiple program threads to access finite number of resources but mutex allows one by one access of a shared resource
+    - process in semaphore block itself , process in mutex do wait
+- semaphore maintains a set of permits - (acquire() and release())
+- new Semaphore(int permits, boolean fairness) -> fairness means longest thread gets access first
